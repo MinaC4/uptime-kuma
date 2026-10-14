@@ -9,9 +9,12 @@ when it stops responding.
 ## Deploy
 
 ```sh
-kubectl apply -f kubernetes/uptime-kuma.yaml
+kubectl apply -f argocd/uptime-kuma.yaml
 kubectl -n uptime-kuma rollout status statefulset/uptime-kuma
 ```
+
+Argo CD tracks the `codex/uptime-kuma-k3d` branch and reapplies manifest changes.
+Automatic pruning is disabled so a removed manifest cannot delete the data PVC.
 
 Open <http://uptime.192.168.1.3.nip.io:19080> from a device on the same LAN, then
 complete Uptime Kuma's initial setup and create its administrator account. This
