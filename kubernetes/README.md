@@ -2,6 +2,7 @@
 
 This manifest runs the official Uptime Kuma 2 image as a single StatefulSet. Its
 SQLite database and configuration live in a 5 GiB `local-path` PersistentVolumeClaim.
+The SQLite backend is selected automatically for this single-replica deployment.
 The pod requests 100 millicores and 256 MiB of memory, with limits of 500
 millicores and 768 MiB. Kubernetes probes the HTTP server and restarts the pod
 when it stops responding.
